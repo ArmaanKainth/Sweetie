@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Sweetie 💜</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Baloo 2',cursive;
+  background:radial-gradient(circle at top,#12001c 0%,#1a0029 40%,#0a0014 100%);
+  height:100vh;overflow:hidden;
+  display:flex;justify-content:center;align-items:center;text-align:center;
+  color:#f5e9ff;
+}
+
+/* twinkling background stars */
+.twinkle{
+  position:absolute;width:2px;height:2px;background:white;border-radius:50%;
+  animation:twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle{
+  0%,100%{opacity:0.3;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.7)}
+}
+
+/* corrected shooting stars (bright head, trailing tail, left→right) */
+.shoot{
+  position:absolute;width:100px;height:2px;
+  background:linear-gradient(90deg,rgba(255,255,255,0),#fff);
+  opacity:0.9;transform:rotate(20deg);
+  animation:shoot 8s linear infinite;
+}
+@keyframes shoot{
+  0%{transform:translate(-10vw,-10vh) rotate(20deg);opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translate(110vw,60vh) rotate(20deg);opacity:0;}
+}
+
+/* floating hearts */
+.floating span{
+  position:absolute;font-size:1.2rem;opacity:.7;
+  animation:float 12s linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(100vh);opacity:.8}
+  100%{transform:translateY(-20vh);opacity:0}
+}
+
+/* card */
+.card{
+  background:rgba(70,0,120,0.85);
+  border-radius:20px;padding:24px 20px;
+  max-width:480px;width:90%;
+  border:2px solid #d7a8ff;
+  box-shadow:0 0 20px rgba(160,80,255,0.4);
+  animation:fadeIn 2s ease forwards,glow 6s ease-in-out infinite alternate;
+  position:relative;z-index:2;
+}
+@keyframes glow{
+  from{box-shadow:0 0 10px rgba(180,120,255,0.3);}
+  to{box-shadow:0 0 25px rgba(230,180,255,0.6);}
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:none;}
+}
+h1{
+  font-size:1.8rem;margin-bottom:10px;color:#ffcbff;
+  text-shadow:0 0 10px rgba(255,180,255,0.5);
+}
+p{
+  font-size:1.05rem;margin:10px 0;line-height:1.5;
+  opacity:0;animation:fadeUp 1.5s ease forwards;
+}
+p:nth-of-type(1){animation-delay:.4s;}
+p:nth-of-type(2){animation-delay:.8s;}
+p:nth-of-type(3){animation-delay:1.2s;}
+p:nth-of-type(4){animation-delay:1.6s;}
+p:nth-of-type(5){animation-delay:2s;}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:none;}
+}
+.heart{font-size:1.6rem;margin:6px 0;animation:heartbeat 1.4s infinite;}
+@keyframes heartbeat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.25);}
+}
+.btn{
+  margin-top:18px;background:linear-gradient(90deg,#c86eff,#ff91dc);
+  color:white;padding:10px 26px;border:none;border-radius:30px;
+  font-size:1rem;cursor:pointer;
+  animation:fadeIn 2.5s ease;box-shadow:0 0 10px rgba(255,120,210,0.4);
+}
+.btn:hover{transform:scale(1.05);}
+</style>
+</head>
+<body>
+
+<!-- stars and shooting stars -->
+<script>
+for(let i=0;i<80;i++){
+  const t=document.createElement('div');
+  t.classList.add('twinkle');
+  t.style.left=Math.random()*100+'vw';
+  t.style.top=Math.random()*100+'vh';
+  t.style.animationDelay=Math.random()*3+'s';
+  document.body.appendChild(t);
+}
+for(let i=0;i<10;i++){
+  const s=document.createElement('div');
+  s.classList.add('shoot');
+  s.style.top=Math.random()*50+'vh';
+  s.style.left=Math.random()*-30+'vw';
+  s.style.animationDelay=(Math.random()*8)+'s';
+  document.body.appendChild(s);
+}
+</script>
+
+<!-- floating hearts -->
+<div class="floating" aria-hidden="true">
+  <span style="left:15%;animation-delay:0s;">💜</span>
+  <span style="left:35%;animation-delay:3s;">💖</span>
+  <span style="left:55%;animation-delay:6s;">💞</span>
+  <span style="left:75%;animation-delay:2s;">💫</span>
+  <span style="left:90%;animation-delay:5s;">💘</span>
+</div>
+
+<div class="card">
+  <h1>Hey Sweetie 💫</h1>
+  <p>Beneath this calm night sky, I just wanted to tell you how wonderful you are.</p>
+  <p>There’s a quiet kind of magic in you, Sweetie — like stars that never stop glowing.</p>
+  <p>Your laughter lights up dark moments; your warmth makes the world softer.</p>
+  <p>Every little thing about you feels like a wish the universe decided to grant.</p>
+  <p>You’re my favourite calm in all this chaos, Sweetie 💜</p>
+  <div class="heart">💖💖💖</div>
+  <button class="btn" onclick="alert('You’re loved more than you know, Sweetie 💖')">Tap Me 🌸</button>
+</div>
+</body>
+</html>
